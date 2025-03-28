@@ -21,6 +21,10 @@ def main():
 			print('Oops, that doesn\'t look like a number. Please type again!')
 			continue
 
+		if guess < 0 or guess > 100:
+			print('Hey, this number is out of the scope I asked for! Please, give a number BETWEEN 0 and 100')
+			continue
+
 		attempts += 1
 		if guess > secret_number:
 			print('The number I\'m thinking is lesser!')
