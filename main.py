@@ -2,15 +2,16 @@
 # Description: Simple Python Number Guessing Game, for have fun
 from random import randint
 
-# How many attempts the player tried
 def main():
+	# I add a max_attempts to make the game a bit more challenging
 	attempts = 0
+	max_attempts = 10
 	print('\nWELCOME TO PYGUESSING GAME\n\n')
 	print('Hey there, What\'s up!?!\nWould you like to play a game? It\'s very simple, I think of a number between 0 and 100 and you try to guess what number I thought.')
 	print('\nPS.: Type "exit" at any time, if you don\'t play anymore')
 	secret_number = randint(0, 100)
 
-	while True:
+	while attempts < max_attempts:
 		guess = input('Type your guess: ')
 		if guess.lower() in ('quit', 'exit'):
 			print('Right, Thanks for playing! See you next time...')
@@ -26,13 +27,16 @@ def main():
 			continue
 
 		attempts += 1
+		if attempts >= max_attempts:
+			print('Woah, seams that your attempts over, you lose the game :(')
+			break
+
 		if guess > secret_number:
-			print('The number I\'m thinking is lesser!')
+			print(f'The number I\'m thinking is lesser! (You have {max_attempts-attempts} attempts left)')
 		elif guess < secret_number:
-			print('The number I\'m thinking is greater!')
+			print(f'The number I\'m thinking is greater! (You have {max_attempts-attempts} attempts left)')
 		else:
 			print(f'Wow, congratulations!! You guessed it in {attempts} attempts!')
 			break
-
 if __name__ == '__main__':
 	main()
