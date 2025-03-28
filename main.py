@@ -28,7 +28,7 @@ def main():
 
 		attempts += 1
 		if attempts >= max_attempts:
-			print('Woah, seams that your attempts over, you lose the game :(')
+			print(f'Sorry, you\'ve used all your attempts! The number was {secret_number}.')
 			break
 
 		if guess > secret_number:
