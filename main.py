@@ -8,11 +8,11 @@ def main():
 	max_attempts = 10
 	print('\nWELCOME TO PYGUESSING GAME\n\n')
 	print('Hey there, What\'s up!?!\nWould you like to play a game? It\'s very simple, I think of a number between 0 and 100 and you try to guess what number I thought.')
-	print('\nPS.: Type "exit" at any time, if you don\'t play anymore')
+	print('\n\tPS.: Type "exit" at any time, if you don\'t want to play anymore\n')
 	secret_number = randint(0, 100)
 
 	while attempts < max_attempts:
-		guess = input('Type your guess: ')
+		guess = input(f'({max_attempts-attempts}) attempts left! Type your guess: ')
 		if guess.lower() in ('quit', 'exit'):
 			print('Right, Thanks for playing! See you next time...')
 			break
@@ -32,9 +32,9 @@ def main():
 			break
 
 		if guess > secret_number:
-			print(f'The number I\'m thinking is lesser! (You have {max_attempts-attempts} attempts left)')
+			print(f'The number I\'m thinking is lesser!')
 		elif guess < secret_number:
-			print(f'The number I\'m thinking is greater! (You have {max_attempts-attempts} attempts left)')
+			print(f'The number I\'m thinking is greater!')
 		else:
 			print(f'Wow, congratulations!! You guessed it in {attempts} attempts!')
 			break
